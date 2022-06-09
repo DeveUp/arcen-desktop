@@ -18,7 +18,7 @@ print(screen_height)
 raiz.geometry(str(screen_width)+"x"+str(screen_height)) 
 
 # Añadir icono del lado derecho de la ventana con la (Ruta relativa)
-raiz.iconbitmap('ZonaPublica\Img\Ico\logoufps.ico')
+raiz.iconbitmap('Frontend Desarrollo\ZonaPublica\Img\Ico\logoufps.ico')
 
 #Restriccion de cambiar el tamaño de la ventana (fila,columna)
 raiz.resizable(True,True)
@@ -35,98 +35,101 @@ def salir():
     lb = Label(raiz, text="prueba de btn de salida")
     lb.pack()#Posicionar lo que se creo dentro de la ventana
 
-
+#BARRA SUPERIOR
 
 imgPrincipal = Label(raiz,text="Imagen ufps", bg="red")
-imgPrincipal.place(x=0,y=0,width=256, height=102.4)
+imgPrincipal.place(relx=0,rely=0,relwidth=0.20, relheight=0.10)
 
 nombreDependencia = Label(raiz,text="Auxiliar de dependencia externa", bg="pink")
-nombreDependencia.place(x=256,y=0,width=640, height=102.4)
+nombreDependencia.place(relx=0.2,rely=0,relwidth=0.5, relheight=0.10)
 
-btn=Button(raiz,text="SALIR", command=salir)
-btn.place(x=896,y=0,width=384, height=102.4)
+barraSalida = nombreDependencia = Label(raiz,text="Barra de salida", bg="yellow")
+barraSalida.place(relx=0.7,rely=0,relwidth=0.3, relheight=0.10)
 
+btn=Button(barraSalida,text="SALIR", command=salir)
+btn.place(relx=0.6,rely=0.3,relwidth=0.2, relheight=0.8)
 
+#BARRA LATERAL
 barraLateral = Label(raiz,text="Negocio", bg="pink")
-barraLateral.place(x=0,y=102.4,width=256, height=921.6)
+barraLateral.place(relx=0.0,rely=0.1,relwidth=0.2, relheight=0.9)
 
+#BARRA DE CONTENIDO
+barraDeContenido = Label(raiz,text="Inicio", bg="red")
+barraDeContenido.place(relx=0.2,rely=0.1,relwidth=0.8, relheight=0.9)
 
-barraDeRuta = Label(raiz,text="Inicio", bg="red")
-barraDeRuta.place(x=256,y=102.4,width=1024, height=102.4)
-
-barraDeRuta = Label(raiz,text="Negocio", bg="white")
-barraDeRuta.place(x=256,y=204.8,width=1024, height=819)
-
-
-
-lblB1 = Label(raiz,text="Bloque 1",bg="yellow")
-lblB1.place(x=350,y=250,width=700, height=60)
-
-btn=Button(raiz,text="Editar")
-btn.place(x=1100,y=250,width=50, height=60)
-
-btn=Button(raiz,text="Eliminar")
-btn.place(x=1160,y=250,width=50, height=60)
+#barraDeRuta = Label(raiz,text="Negocio", bg="white")
+#barraDeRuta.place(x=256,y=204.8,width=1024, height=819)
 
 
 
-lblB2 = Label(raiz,text="Bloque 2",bg="yellow")
-lblB2.place(x=350,y=350,width=700, height=60)
+#lblB1 = Label(raiz,text="Bloque 1",bg="yellow")
+#lblB1.place(x=350,y=250,width=700, height=60)
 
-btn=Button(raiz,text="Editar")
-btn.place(x=1100,y=350,width=50, height=60)
+#btn=Button(raiz,text="Editar")
+#btn.place(relx=1100,y=250,width=50, height=60)
 
-btn=Button(raiz,text="Eliminar")
-btn.place(x=1160,y=350,width=50, height=60)
-
-
-lblB2 = Label(raiz,text="Bloque 4",bg="yellow")
-lblB2.place(x=350,y=450,width=700, height=60)
-
-btn=Button(raiz,text="Editar")
-btn.place(x=1100,y=450,width=50, height=60)
-
-btn=Button(raiz,text="Eliminar")
-btn.place(x=1160,y=450,width=50, height=60)
+#btn=Button(raiz,text="Eliminar")
+#btn.place(x=1160,y=250,width=50, height=60)
 
 
 
-lblB2 = Label(raiz,text="Bloque 3",bg="yellow")
-lblB2.place(x=350,y=350,width=700, height=60)
+#lblB2 = Label(raiz,text="Bloque 2",bg="yellow")
+#lblB2.place(x=350,y=350,width=700, height=60)
 
-btn=Button(raiz,text="Editar")
-btn.place(x=1100,y=350,width=50, height=60)
+#btn=Button(raiz,text="Editar")
+#btn.place(x=1100,y=350,width=50, height=60)
 
-btn=Button(raiz,text="Eliminar")
-btn.place(x=1160,y=350,width=50, height=60)
-
-
+#btn=Button(raiz,text="Eliminar")
+#btn.place(x=1160,y=350,width=50, height=60)
 
 
+#lblB2 = Label(raiz,text="Bloque 4",bg="yellow")
+#lblB2.place(x=350,y=450,width=700, height=60)
 
-lblB2 = Label(raiz,text="Bloque 5",bg="yellow")
-lblB2.place(x=350,y=550,width=700, height=60)
+#btn=Button(raiz,text="Editar")
+#btn.place(x=1100,y=450,width=50, height=60)
 
-btn=Button(raiz,text="Editar")
-btn.place(x=1100,y=550,width=50, height=60)
+#btn=Button(raiz,text="Eliminar")
+#btn.place(x=1160,y=450,width=50, height=60)
 
-btn=Button(raiz,text="Eliminar")
-btn.place(x=1160,y=550,width=50, height=60)
+
+
+#lblB2 = Label(raiz,text="Bloque 3",bg="yellow")
+#lblB2.place(x=350,y=350,width=700, height=60)
+
+#btn=Button(raiz,text="Editar")
+#btn.place(x=1100,y=350,width=50, height=60)
+
+#btn=Button(raiz,text="Eliminar")
+#btn.place(x=1160,y=350,width=50, height=60)
 
 
 
 
 
+#lblB2 = Label(raiz,text="Bloque 5",bg="yellow")
+#lblB2.place(x=350,y=550,width=700, height=60)
 
-lblB2 = Label(raiz,text="Bloque 6",bg="yellow")
-lblB2.place(x=350,y=650,width=700, height=60)
+#btn=Button(raiz,text="Editar")
+#btn.place(x=1100,y=550,width=50, height=60)
+
+#btn=Button(raiz,text="Eliminar")
+#btn.place(x=1160,y=550,width=50, height=60)
 
 
-btn=Button(raiz,text="Editar")
-btn.place(x=1100,y=650,width=50, height=60)
 
-btn=Button(raiz,text="Eliminar")
-btn.place(x=1160,y=650,width=50, height=60)
+
+
+
+#lblB2 = Label(raiz,text="Bloque 6",bg="yellow")
+#lblB2.place(x=350,y=650,width=700, height=60)
+
+
+#btn=Button(raiz,text="Editar")
+#btn.place(x=1100,y=650,width=50, height=60)
+
+#btn=Button(raiz,text="Eliminar")
+#btn.place(x=1160,y=650,width=50, height=60)
 
 
 
