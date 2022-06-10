@@ -18,13 +18,13 @@ print(screen_height)
 raiz.geometry(str(screen_width)+"x"+str(screen_height)) 
 
 # Añadir icono del lado derecho de la ventana con la (Ruta relativa)
-raiz.iconbitmap('ZonaPublica\Img\Ico\logoufps.ico')
+raiz.iconbitmap('Frontend Desarrollo\ZonaPublica\Img\Ico\logoufps.ico')
 
 #Restriccion de cambiar el tamaño de la ventana (fila,columna)
 raiz.resizable(True,True)
 
 # INETENTO DE SUBIR IMAGEN (revisar)
-imagen=PhotoImage(file="ZonaPublica\Img\img\secrtaria.png")
+imagen=PhotoImage(file="Frontend Desarrollo\ZonaPublica\Img\img\secrtaria.png")
 fondo = Label(raiz, image=imagen)
 fondo.pack()
 

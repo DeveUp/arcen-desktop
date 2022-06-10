@@ -1,2 +1,0 @@
-# arcen-desktop
-Aplicación Escritorio

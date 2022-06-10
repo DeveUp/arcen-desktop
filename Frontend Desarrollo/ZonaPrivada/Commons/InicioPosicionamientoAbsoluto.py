@@ -1,3 +1,4 @@
+from msilib.schema import RadioButton
 from tkinter import PhotoImage, Tk,Label,Button,Entry
 
 
@@ -23,10 +24,6 @@ raiz.iconbitmap('Frontend Desarrollo\ZonaPublica\Img\Ico\logoufps.ico')
 #Restriccion de cambiar el tamaño de la ventana (fila,columna)
 raiz.resizable(True,True)
 
-# INETENTO DE SUBIR IMAGEN (revisar)
-#imagen=PhotoImage(file="UFPSIMAGE.png")
-#fondo = Label(raiz, image=imagen).place(relx=0.3, rely=0.04)
-#fondo.pacck()
 
 
 
@@ -37,8 +34,9 @@ def salir():
 
 #BARRA SUPERIOR
 
-imgPrincipal = Label(raiz,text="Imagen ufps", bg="red")
+imgPrincipal = Label(raiz,text="Imagen ufps", bg="#06283D")
 imgPrincipal.place(relx=0,rely=0,relwidth=0.20, relheight=0.10)
+imgPrincipal.config(cursor="heart", relief="flat")
 
 nombreDependencia = Label(raiz,text="Auxiliar de dependencia externa", bg="pink")
 nombreDependencia.place(relx=0.2,rely=0,relwidth=0.5, relheight=0.10)
@@ -46,8 +44,11 @@ nombreDependencia.place(relx=0.2,rely=0,relwidth=0.5, relheight=0.10)
 barraSalida = nombreDependencia = Label(raiz,text="Barra de salida", bg="yellow")
 barraSalida.place(relx=0.7,rely=0,relwidth=0.3, relheight=0.10)
 
-btn=Button(barraSalida,text="SALIR", command=salir)
-btn.place(relx=0.6,rely=0.3,relwidth=0.2, relheight=0.8)
+btnSalir=Button(barraSalida,text="SALIR", command=salir)
+btnSalir.place(relx=0.8,rely=0.1,relwidth=0.1, relheight=0.8,)
+
+usuario = nombreDependencia = Label(barraSalida,text="Leyner Ortega", bg="pink")
+usuario.place(relx=0.1,rely=0.1,relwidth=0.6, relheight=0.80)
 
 #BARRA LATERAL
 barraLateral = Label(raiz,text="Negocio", bg="pink")
