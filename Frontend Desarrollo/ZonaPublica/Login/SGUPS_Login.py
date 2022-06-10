@@ -28,10 +28,6 @@ imagen=PhotoImage(file="Frontend Desarrollo\ZonaPublica\Img\img\secrtaria.png")
 fondo = Label(raiz, image=imagen)
 fondo.pack()
 
-#l = PhotoImage(file = '..\UFPSIMAGE.png')
-#label_img = Label(raiz, image = l)
-#label_img.pack()
-
 
 #Metodo para que muestre el mensaje desccrito
 def iniciarSession():
