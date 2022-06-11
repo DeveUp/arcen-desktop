@@ -3,7 +3,7 @@ from Clase2 import *
 
 class Login (Frame):
 
-    #funcionalidad = Clase2()
+    funcionalidad = Clase2()
     #Todo metodo dentro de una clase recibe self
     def __init__(self, master=None):
        
@@ -39,8 +39,8 @@ class Login (Frame):
         self.txtNum2.place(relx=0.70,rely=0.6,relwidth=0.2, relheight=0.05)
 
         #Crear botones
-        #self.btn=Button(raiz,text="Iniciar sesion", command=self.funcionalidad.iniciarSession(fondoLogin))
-        self.btn=Button(raiz,text="Iniciar sesion", command=iniciarSession)
+        self.btn=Button(raiz,text="Iniciar sesion", command=self.funcionalidad.iniciarSession(fondoLogin))
+        #self.btn=Button(raiz,text="Iniciar sesion", command=iniciarSession)
         self.btn.place(relx=0.70,rely=0.7,relwidth=0.2, relheight=0.05)
         print("si llega 1")
 

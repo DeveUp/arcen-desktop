@@ -1,4 +1,6 @@
+from msilib.schema import RadioButton
 from tkinter import Tk,Frame,Label,Button
+
 
 class ContenedoresBase (Frame):
 
@@ -16,30 +18,57 @@ class ContenedoresBase (Frame):
         self.lb.pack()#Posicionar lo que se creo dentro de la ventana
     
     def construirContenedores(self):
-        #BARRA SUPERIOR
-        self.imgPrincipal = Label(raiz,text="Imagen ufps", bg="#06283D")
-        self.imgPrincipal.place(relx=0,rely=0,relwidth=0.20, relheight=0.10)
-        self.imgPrincipal.config(cursor="heart", relief="flat")
 
-        self.nombreDependencia = Label(raiz,text="Auxiliar de dependencia externa", bg="pink")
-        self.nombreDependencia.place(relx=0.2,rely=0,relwidth=0.5, relheight=0.10)
+        # Se desarrolla un fondo con el objetivo de generar un borde en el cual se le pudiese cambiar el color
+        
+        borderColor = "#CCCCCC"
 
-        self.barraSalida = barraSalida= nombreDependencia = Label(raiz,text="Barra de salida", bg="yellow")
-        self.barraSalida.place(relx=0.7,rely=0,relwidth=0.3, relheight=0.10)
+        self.fondoImgPrincipal = fondoImgPrincipal = Label(raiz,bg=borderColor)
+        self.fondoImgPrincipal.place(relx=0,rely=0,relwidth=0.2, relheight=0.1)
+        self.imgPrincipal = Label(fondoImgPrincipal,text="Imagen ufps", bg="#FFFFFF")
+        self.imgPrincipal.place(relx=0,rely=0,relwidth=1, relheight=1)
+    
+        self.fondoNombreDependencia = fondoNombreDependencia = Label(raiz,bg=borderColor)
+        self.fondoNombreDependencia.place(relx=0.2,rely=0,relwidth=0.5, relheight=0.10)
+        self.nombreDependencia = Label(fondoNombreDependencia,text="Auxiliar de dependencia externa",  bg="#FFFFFF")
+        self.nombreDependencia.place(relx=0,rely=0,relwidth=1, relheight=1)
 
-        self.btnSalir=Button(self.barraSalida,text="SALIR")
+        self.fondoBarraSalida = fondoBarraSalida = Label(raiz,bg=borderColor)
+        self.fondoBarraSalida.place(relx=0.7,rely=0,relwidth=0.3, relheight=0.10)
+        self.barraSalida = barraSalida= Label(fondoBarraSalida,text="Barra de salida", bg="#FFFFFF")
+        self.barraSalida.place(relx=0,rely=0,relwidth=1, relheight=1)
+
+        self.btnSalir=Button(self.barraSalida,text="SALIR",relief="flat",bg="#BC0017")
         self.btnSalir.place(relx=0.8,rely=0.1,relwidth=0.1, relheight=0.8,)
 
         self.usuario = nombreDependencia = Label(barraSalida,text="Leyner Ortega", bg="pink")
         self.usuario.place(relx=0.1,rely=0.1,relwidth=0.6, relheight=0.80)
 
         #BARRA LATERAL
-        self.barraLateral = Label(raiz,text="Negocio", bg="pink")
-        self.barraLateral.place(relx=0.0,rely=0.1,relwidth=0.2, relheight=0.9)
+        self.fondoBarraLateral = fondoBarraLateral = Label(raiz,bg=borderColor)
+        self.fondoBarraLateral.place(relx=0.0,rely=0.1,relwidth=0.2, relheight=0.9)
+        self.barraLateral =barraLateral= Label(fondoBarraLateral,text="Negocio",  bg="#FFFFFF")
+        self.barraLateral.place(relx=0,rely=0,relwidth=1, relheight=1)
+
+        self.contenedor = Label(barraLateral,text="contenedor1", bg="blue")
+        self.contenedor.place(relx=0.1,rely=0.02,relwidth=0.8, relheight=0.05)
+
+        self.contenedor1 = Label(barraLateral,text="contenedor1", bg="blue")
+        self.contenedor1.place(relx=0.1,rely=0.09,relwidth=0.8, relheight=0.05)
+
+        self.contenedor2 = Label(barraLateral,text="contenedor1", bg="blue")
+        self.contenedor2.place(relx=0.1,rely=0.16,relwidth=0.8, relheight=0.05)
+
+        self.contenedor3 = Label(barraLateral,text="contenedor1", bg="blue")
+        self.contenedor3.place(relx=0.1,rely=0.23,relwidth=0.8, relheight=0.05)
 
         #BARRA DE CONTENIDO
-        self.barraDeContenido = Label(raiz,text="Inicio", bg="red")
-        self.barraDeContenido.place(relx=0.2,rely=0.1,relwidth=0.8, relheight=0.9)
+        self.fondoBarraDeContenido = fondoBarraDeContenido = Label(raiz,bg=borderColor)
+        self.fondoBarraDeContenido.place(relx=0.2,rely=0.1,relwidth=0.8, relheight=0.9)
+        self.barraDeContenido = Label(fondoBarraDeContenido,text="Inicio",  bg="#FFFFFF")
+        self.barraDeContenido.place(relx=0,rely=0,relwidth=1, relheight=1)
+
+
 
 
 
