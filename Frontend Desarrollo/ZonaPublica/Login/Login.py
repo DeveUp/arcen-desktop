@@ -1,4 +1,5 @@
 from tkinter import Tk,Frame,Label,Button,Entry
+from PIL import Image, ImageTk
 from Clase2 import *
 
 class Login (Frame):
@@ -15,8 +16,22 @@ class Login (Frame):
     
 
     def crearMaquetaBase(self):
-        
-        self.fondoLogin=fondoLogin = Label(raiz, bg="white")
+        self.fondo= Label(raiz, bg="white")
+        self.fondo.place(relx=0,rely=0,relwidth=1, relheight=1)
+
+        widthImg = raiz.winfo_screenwidth()
+        heightImg = raiz.winfo_screenheight()
+
+        print(widthImg)
+        print(heightImg)
+
+        #Cargar imagenes sin importar el formato
+        self.image = Image.open('Frontend Desarrollo\ZonaPublica\Img\Imagen\login2.jpeg')
+        self.resize_image = self.image.resize((int(widthImg), int(heightImg)))
+        self.python_image = ImageTk.PhotoImage(self.resize_image)
+        self.image_label = Label(self.fondo, image=self.python_image).pack()
+
+        self.fondoLogin= Label(raiz, bg="white")
         self.fondoLogin.place(relx=0.65,rely=0.15,relwidth=0.3, relheight=0.7)
 
         self.imgSecundaria = Label(raiz,text="Imagen ufps", bg="red")
@@ -39,10 +54,15 @@ class Login (Frame):
         self.txtNum2.place(relx=0.70,rely=0.6,relwidth=0.2, relheight=0.05)
 
         #Crear botones
-        self.btn=Button(raiz,text="Iniciar sesion", command=self.funcionalidad.iniciarSession(fondoLogin))
-        #self.btn=Button(raiz,text="Iniciar sesion", command=iniciarSession)
+        #self.btn=Button(raiz,text="Iniciar sesion", command=self.funcionalidad.iniciarSession(fondoLogin))
+        self.btn=Button(raiz,text="Iniciar sesion")
         self.btn.place(relx=0.70,rely=0.7,relwidth=0.2, relheight=0.05)
         print("si llega 1")
+
+        
+
+
+
 
     def iniciarSession(self):
         print("si llega555555555555555")
