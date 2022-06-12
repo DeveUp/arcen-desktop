@@ -16,47 +16,66 @@ class Login (Frame):
     
 
     def crearMaquetaBase(self):
+
+        fuente ="Verdana"
+
         self.fondo= Label(raiz, bg="white")
         self.fondo.place(relx=0,rely=0,relwidth=1, relheight=1)
 
-        widthImg = raiz.winfo_screenwidth()
+        self.fondoLoginImg= Label(raiz)
+        self.fondoLoginImg.place(relx=0.0,rely=0.0,relwidth=0.7, relheight=1)
+
+        widthImg = raiz.winfo_screenwidth()*0.7
         heightImg = raiz.winfo_screenheight()
 
         print(widthImg)
         print(heightImg)
 
         #Cargar imagenes sin importar el formato
-        self.image = Image.open('Frontend Desarrollo\ZonaPublica\Img\Imagen\login2.jpeg')
+        self.image = Image.open('Frontend Desarrollo\ZonaPublica\Img\Imagen\login.png')
         self.resize_image = self.image.resize((int(widthImg), int(heightImg)))
         self.python_image = ImageTk.PhotoImage(self.resize_image)
-        self.image_label = Label(self.fondo, image=self.python_image).pack()
+        self.image_label = Label(self.fondoLoginImg, image=self.python_image).pack()
 
-        self.fondoLogin= Label(raiz, bg="white")
-        self.fondoLogin.place(relx=0.65,rely=0.15,relwidth=0.3, relheight=0.7)
+        self.fondoLogin= Label(raiz, bg="#FFFFFF")
+        self.fondoLogin.place(relx=0.6,rely=0.0,relwidth=0.4, relheight=1)
 
-        self.imgSecundaria = Label(raiz,text="Imagen ufps", bg="red")
-        self.imgSecundaria.place(relx=0.70,rely=0.20,relwidth=0.2, relheight=0.1)
+        self.imgSecundaria = Label(raiz,text="Imagen ufps")
+        self.imgSecundaria.place(relx=0.7,rely=0.05,relwidth=0.2, relheight=0.4)
 
-        self.lblNum1 = Label(raiz,text="Email",bg="yellow")
-        self.lblNum1.place(relx=0.70,rely=0.35,relwidth=0.2, relheight=0.05)
-        self.txtNum1=Entry(raiz,bg="pink")
-        self.txtNum1.place(relx=0.70,rely=0.4,relwidth=0.2, relheight=0.05)
+        widthImgSec = raiz.winfo_screenwidth()*0.2
+        heightImgSec = raiz.winfo_screenheight()*0.3
 
-        self.lblNum2 = Label(raiz,text="Documento",bg="yellow")
-        self.lblNum2.place(relx=0.70,rely=0.45,relwidth=0.2, relheight=0.05)
-        self.txtNum2=Entry(raiz,bg="pink")
-        self.txtNum2.place(relx=0.70,rely=0.5,relwidth=0.2, relheight=0.05)
+        print(widthImgSec)
+        print(heightImgSec)
+
+        #Cargar imagenes sin importar el formato
+        self.imageSec = Image.open('Frontend Desarrollo\ZonaPublica\Img\Imagen\logoUFPS2.png')
+        self.resize_imageSec = self.imageSec.resize((int(widthImgSec), int(heightImgSec)))
+        self.python_imageSec = ImageTk.PhotoImage(self.resize_imageSec)
+        self.image_labelSec = Label(self.imgSecundaria, image=self.python_imageSec).pack()
 
 
-        self.lblNum3 = Label(raiz,text="Contraseña",bg="yellow")
-        self.lblNum3.place(relx=0.70,rely=0.55,relwidth=0.2, relheight=0.05)
-        self.txtNum2=Entry(raiz,bg="pink")
+        self.lblNum1 = Label(raiz,text="Email", font=fuente)
+        self.lblNum1.place(relx=0.70,rely=0.45,relwidth=0.2, relheight=0.05)
+        self.txtNum1=Entry(raiz,bg="#CCCCCC")
+        self.txtNum1.place(relx=0.70,rely=0.5,relwidth=0.2, relheight=0.05)
+
+        self.lblNum2 = Label(raiz,text="Documento", font=fuente)
+        self.lblNum2.place(relx=0.70,rely=0.55,relwidth=0.2, relheight=0.05)
+        self.txtNum2=Entry(raiz,bg="#CCCCCC")
         self.txtNum2.place(relx=0.70,rely=0.6,relwidth=0.2, relheight=0.05)
+
+
+        self.lblNum3 = Label(raiz,text="Contraseña", font=fuente)
+        self.lblNum3.place(relx=0.70,rely=0.65,relwidth=0.2, relheight=0.05)
+        self.txtNum2=Entry(raiz,bg="#CCCCCC")
+        self.txtNum2.place(relx=0.70,rely=0.7,relwidth=0.2, relheight=0.05)
 
         #Crear botones
         #self.btn=Button(raiz,text="Iniciar sesion", command=self.funcionalidad.iniciarSession(fondoLogin))
-        self.btn=Button(raiz,text="Iniciar sesion")
-        self.btn.place(relx=0.70,rely=0.7,relwidth=0.2, relheight=0.05)
+        self.btn=Button(raiz,text="Iniciar sesion", bg="#BC0017", foreground="#FFFFFF", font=fuente)
+        self.btn.place(relx=0.70,rely=0.8,relwidth=0.2, relheight=0.05)
         print("si llega 1")
 
         
@@ -74,6 +93,8 @@ class Login (Frame):
 raiz = Tk()
 screen_width = raiz.winfo_screenwidth()
 screen_height = raiz.winfo_screenheight()
+# Añadir icono del lado derecho de la ventana con la (Ruta relativa)
+raiz.iconbitmap('Frontend Desarrollo\ZonaPublica\Img\Ico\logoufps.ico')
 raiz.title("Secretaria general de la UFPS")
 raiz.geometry(str(screen_width)+"x"+str(screen_height)) 
 app = Login(raiz) 
