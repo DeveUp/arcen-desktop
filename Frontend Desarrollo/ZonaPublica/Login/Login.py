@@ -19,7 +19,7 @@ class Login (Frame):
 
         fuente ="Verdana"
 
-        self.fondo= Label(raiz, bg="white")
+        self.fondo= Label(raiz)
         self.fondo.place(relx=0,rely=0,relwidth=1, relheight=1)
 
         self.fondoLoginImg= Label(raiz)
@@ -37,7 +37,7 @@ class Login (Frame):
         self.python_image = ImageTk.PhotoImage(self.resize_image)
         self.image_label = Label(self.fondoLoginImg, image=self.python_image).pack()
 
-        self.fondoLogin= Label(raiz, bg="#FFFFFF")
+        self.fondoLogin= Label(raiz)
         self.fondoLogin.place(relx=0.6,rely=0.0,relwidth=0.4, relheight=1)
 
         self.imgSecundaria = Label(raiz,text="Imagen ufps")
@@ -77,6 +77,8 @@ class Login (Frame):
         self.btn=Button(raiz,text="Iniciar sesion", bg="#BC0017", foreground="#FFFFFF", font=fuente)
         self.btn.place(relx=0.70,rely=0.8,relwidth=0.2, relheight=0.05)
         print("si llega 1")
+        
+        return raiz
 
         
 
