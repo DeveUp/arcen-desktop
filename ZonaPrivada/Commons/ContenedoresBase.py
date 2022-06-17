@@ -117,7 +117,7 @@ class ContenedoresBase (Frame):
     def contenido(self):
         fuente ="Verdana"
         
-        self.btnBloques=Button(self.fondoBarraDeContenido,text=" + Agregar",  bg="#BC0017", foreground="#FFFFFF", font=fuente, relief="flat", anchor="w")
+        self.btnBloques=Button(self.fondoBarraDeContenido,text=" + Agregar",  bg="#53BF9D", foreground="#FFFFFF", font=fuente, relief="flat", anchor="w")
         self.btnBloques.place(relx=0.8,rely=0.05,relwidth=0.1, relheight=0.05)
 
         self.contenedor3 = Label(self.fondoBarraDeContenido,text="", bg="#FFF2F2")
@@ -132,17 +132,40 @@ class ContenedoresBase (Frame):
             API = 'https://jsonplaceholder.typicode.com/users/'+str(numero)  
             json_datos = requests.get(API).json()
             nombre =str(json_datos["username"]) 
-            self.lb = Label(self.contenedor3, text=nombre,font=fuente, anchor="w")
+            self.lb = Label(self.contenedor3, text=nombre,font=fuente, anchor="w",bg="#BC0017")
+            self.lb.place(relwidth=0.7, relheight=0.2)
             self.lb.pack(anchor="w")#Posicionar lo que se creo dentro de la ventana
 
-            self.btnBloques=Button(self.contenedor3,text=" - Eliminar",  bg="#BC0017", foreground="#FFFFFF", font=fuente, relief="flat", anchor="w")
+            self.btnBloques=Button(self.contenedor3,text=" - Eliminar",  bg="#BC0017", foreground="#FFFFFF", font=fuente, relief="flat", anchor="w",  command=self.validacionCliente)
             self.btnBloques.pack(anchor="ne")
             numero += 1
         
 
         #for key in json_datos:
         #    print(key, ":", json_datos[key])
-            
+    
+
+
+    def validacionCliente(self):
+
+        fuente ="Verdana"
+
+        self.contenedorCliente = Label(self.fondoBarraDeContenido,text="", bg="red")
+        self.contenedorCliente.place(relx=0.25,rely=0.25,relwidth=0.5, relheight=0.5)
+
+        self.msgConnfirmacion = barraSalida= Label(self.contenedorCliente,text="Barra d", bg="#CCCCCC")
+        self.msgConnfirmacion.place(relx=0.3,rely=0.2,relwidth=0.4, relheight=0.2)
+
+        self.btnSi=Button(self.contenedorCliente,text=" SI ",  bg="#53BF9D", foreground="#FFFFFF", font=fuente, relief="flat")
+        self.btnSi.place(relx=0.2,rely=0.6,relwidth=0.2, relheight=0.2)
+
+        self.btnNo=Button(self.contenedorCliente,text=" NO ",  bg="#BC0017", foreground="#FFFFFF", font=fuente, relief="flat")
+        self.btnNo.place(relx=0.6,rely=0.6,relwidth=0.2, relheight=0.2)
+
+
+
+        
+
 
 
 
