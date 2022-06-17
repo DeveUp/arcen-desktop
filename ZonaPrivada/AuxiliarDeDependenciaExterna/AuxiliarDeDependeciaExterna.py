@@ -1,7 +1,10 @@
+
+from ZonaPrivada.Commons.ContenedoresBase import ContenedoresBase
 from tkinter import *
-from ContenedoresBase import *
+
 #from Commons.ContenedoresBase import *
 #from ZonaPrivada.Commons.ContenedoresBase import ContenedoresBase
+#ZonaPrivada\Commons\ContenedoresBase.py
 
 def AuxiliarDeDependenciaExterna(self):
     app = self.ContenedoresBase()

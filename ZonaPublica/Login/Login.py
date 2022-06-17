@@ -32,7 +32,7 @@ class Login (Frame):
         print(heightImg)
 
         #Cargar imagenes sin importar el formato
-        self.image = Image.open('Frontend Desarrollo\ZonaPublica\Img\Imagen\login.png')
+        self.image = Image.open('ZonaPublica\Img\Imagen\login.png')
         self.resize_image = self.image.resize((int(widthImg), int(heightImg)))
         self.python_image = ImageTk.PhotoImage(self.resize_image)
         self.image_label = Label(self.fondoLoginImg, image=self.python_image).pack()
@@ -50,7 +50,7 @@ class Login (Frame):
         print(heightImgSec)
 
         #Cargar imagenes sin importar el formato
-        self.imageSec = Image.open('Frontend Desarrollo\ZonaPublica\Img\Imagen\logoUFPS2.png')
+        self.imageSec = Image.open('ZonaPublica\Img\Imagen\logoUFPS2.png')
         self.resize_imageSec = self.imageSec.resize((int(widthImgSec), int(heightImgSec)))
         self.python_imageSec = ImageTk.PhotoImage(self.resize_imageSec)
         self.image_labelSec = Label(self.imgSecundaria, image=self.python_imageSec).pack()
@@ -96,7 +96,7 @@ raiz = Tk()
 screen_width = raiz.winfo_screenwidth()
 screen_height = raiz.winfo_screenheight()
 # Añadir icono del lado derecho de la ventana con la (Ruta relativa)
-raiz.iconbitmap('Frontend Desarrollo\ZonaPublica\Img\Ico\logoufps.ico')
+raiz.iconbitmap('ZonaPublica\Img\Ico\logoufps.ico')
 raiz.title("Secretaria general de la UFPS")
 raiz.geometry(str(screen_width)+"x"+str(screen_height)) 
 app = Login(raiz) 

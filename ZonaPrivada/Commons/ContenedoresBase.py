@@ -41,7 +41,7 @@ class ContenedoresBase (Frame):
         print(heightImg)
 
         #Cargar imagenes sin importar el formato
-        self.image = Image.open('Frontend Desarrollo\ZonaPublica\Img\Imagen\logoUFPS.png')
+        self.image = Image.open('ZonaPublica\Img\Imagen\logoUFPS.png')
         self.resize_image = self.image.resize((int(widthImg), int(heightImg)))
         self.python_image = ImageTk.PhotoImage(self.resize_image)
         self.image_label = Label(self.fondoImgPrincipal, image=self.python_image).pack()
@@ -69,8 +69,15 @@ class ContenedoresBase (Frame):
 
        
 
-        self.usuario = nombreDependencia = Label(barraSalida,text="Leyner Ortega", bg="#CCCCCC", font=fuente)
+        self.usuario = nombreDependencia = Label(barraSalida,text="Leyner Ortega", bg="#FFF2F2", font=fuente)
         self.usuario.place(relx=0.1,rely=0.1,relwidth=0.6, relheight=0.80)
+
+
+         #BARRA DE CONTENIDO
+        self.fondoBarraDeContenido = fondoBarraDeContenido = Label(raiz,bg=borderColor)
+        self.fondoBarraDeContenido.place(relx=0.2,rely=0.1,relwidth=0.8, relheight=0.9)
+        self.barraDeContenido = Label(fondoBarraDeContenido,text="Inicio",  bg="#FFFFFF")
+        self.barraDeContenido.place(relx=0,rely=0,relwidth=1, relheight=1)
 
         #BARRA LATERAL
         self.fondoBarraLateral = fondoBarraLateral = Label(raiz,bg=borderColor)
@@ -80,7 +87,7 @@ class ContenedoresBase (Frame):
 
         self.contenedor0 = Label(barraLateral,text="contenedor1", bg="#CCCCCC", font=fuente)
         self.contenedor0.place(relx=0.1,rely=0.02,relwidth=0.8, relheight=0.05)
-        self.btnBloques=Button(self.contenedor0,text="Bloques", bg="#FFFFFF", font=fuente, relief="flat", anchor="w")
+        self.btnBloques=Button(self.contenedor0,text="Bloques", bg="#FFFFFF", font=fuente, relief="flat", anchor="w", command =self.contenido)
         self.btnBloques.place(relx=0.0,rely=0.0,relwidth=1, relheight=1)
 
         self.contenedor1 = Label(barraLateral,text="contenedor1", bg="#CCCCCC", font=fuente)
@@ -101,13 +108,9 @@ class ContenedoresBase (Frame):
         self.btnBloques.place(relx=0.0,rely=0.0,relwidth=1, relheight=1)
 
 
-        #BARRA DE CONTENIDO
-        self.fondoBarraDeContenido = fondoBarraDeContenido = Label(raiz,bg=borderColor)
-        self.fondoBarraDeContenido.place(relx=0.2,rely=0.1,relwidth=0.8, relheight=0.9)
-        self.barraDeContenido = Label(fondoBarraDeContenido,text="Inicio",  bg="#FFFFFF")
-        self.barraDeContenido.place(relx=0,rely=0,relwidth=1, relheight=1)
+       
 
-        self.contenido()
+        #self.contenido()
         
 
 
@@ -117,7 +120,7 @@ class ContenedoresBase (Frame):
         self.btnBloques=Button(self.fondoBarraDeContenido,text=" + Agregar",  bg="#BC0017", foreground="#FFFFFF", font=fuente, relief="flat", anchor="w")
         self.btnBloques.place(relx=0.8,rely=0.05,relwidth=0.1, relheight=0.05)
 
-        self.contenedor3 = Label(self.fondoBarraDeContenido,text="contenzzzzzzzzzzzz", bg="#CCCCCC")
+        self.contenedor3 = Label(self.fondoBarraDeContenido,text="", bg="#FFF2F2")
         self.contenedor3.place(relx=0.1,rely=0.1,relwidth=0.8, relheight=0.8)
 
         API = 'https://jsonplaceholder.typicode.com/users'  
@@ -160,7 +163,7 @@ print(screen_width)
 print(screen_height)
 raiz.title("Secretaria general de la UFPS")
 # Añadir icono del lado derecho de la ventana con la (Ruta relativa)
-raiz.iconbitmap('Frontend Desarrollo\ZonaPublica\Img\Ico\logoufps.ico')
+raiz.iconbitmap('ZonaPublica\Img\Ico\logoufps.ico')
 raiz.geometry(str(screen_width)+"x"+str(screen_height)) 
 app = ContenedoresBase(raiz) 
 app.mainloop()
