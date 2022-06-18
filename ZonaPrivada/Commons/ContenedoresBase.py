@@ -1,13 +1,19 @@
 
-from tkinter import PhotoImage, Tk,Frame,Label,Button, font
+from msilib.schema import Font
+from tkinter import PhotoImage, Tk,Frame,Label,Button, font,Entry
 from unicodedata import name
 from PIL import Image, ImageTk
 import requests
+from fuentes import fuentes
+
 
 class ContenedoresBase (Frame):
 
+
+
     #Todo metodo dentro de una clase recibe self
     def __init__(self, master=None):
+       
         super().__init__(master,width=screen_width, height=screen_height)
         self.master = master
         self.pack()
@@ -117,11 +123,12 @@ class ContenedoresBase (Frame):
     def contenido(self):
         fuente ="Verdana"
         
-        self.btnBloques=Button(self.fondoBarraDeContenido,text=" + Agregar",  bg="#53BF9D", foreground="#FFFFFF", font=fuente, relief="flat", anchor="w")
+        self.btnBloques=Button(self.fondoBarraDeContenido,text=" + Agregar",  bg="#53BF9D", foreground="#FFFFFF", font=fuente, relief="flat", anchor="w", command=self.argregar)
         self.btnBloques.place(relx=0.8,rely=0.05,relwidth=0.1, relheight=0.05)
-
+        
         self.contenedor3 = Label(self.fondoBarraDeContenido,text="", bg="#FFF2F2")
         self.contenedor3.place(relx=0.1,rely=0.1,relwidth=0.8, relheight=0.8)
+        
 
         API = 'https://jsonplaceholder.typicode.com/users'  
         json_datos = requests.get(API).json()
@@ -151,10 +158,10 @@ class ContenedoresBase (Frame):
         fuente ="Verdana"
 
         self.contenedorCliente = Label(self.fondoBarraDeContenido,text="", bg="red")
-        self.contenedorCliente.place(relx=0.25,rely=0.25,relwidth=0.5, relheight=0.5)
+        self.contenedorCliente.place(relx=0.3,rely=0.3,relwidth=0.4, relheight=0.4)
 
-        self.msgConnfirmacion = barraSalida= Label(self.contenedorCliente,text="Barra d", bg="#CCCCCC")
-        self.msgConnfirmacion.place(relx=0.3,rely=0.2,relwidth=0.4, relheight=0.2)
+        self.msgConnfirmacion = barraSalida= Label(self.contenedorCliente,text="¿Desea eliminar el registro?", bg="#CCCCCC", font=fuente)
+        self.msgConnfirmacion.place(relx=0.2,rely=0.2,relwidth=0.6, relheight=0.2)
 
         self.btnSi=Button(self.contenedorCliente,text=" SI ",  bg="#53BF9D", foreground="#FFFFFF", font=fuente, relief="flat")
         self.btnSi.place(relx=0.2,rely=0.6,relwidth=0.2, relheight=0.2)
@@ -162,20 +169,41 @@ class ContenedoresBase (Frame):
         self.btnNo=Button(self.contenedorCliente,text=" NO ",  bg="#BC0017", foreground="#FFFFFF", font=fuente, relief="flat")
         self.btnNo.place(relx=0.6,rely=0.6,relwidth=0.2, relheight=0.2)
 
+    def argregar(self):
 
+        fuente ="Verdana"
+        self.contenedor_agregar = Label(self.fondoBarraDeContenido,text="Principios de agregar", bg="red")
+        self.contenedor_agregar.place(relx=0.1,rely=0.1,relwidth=0.8, relheight=0.8)
 
+        self.titulo_agregar = Label(self.contenedor_agregar,text="AGREGAR BLOQUE", bg="#CCCCCC",font=fuente)
+        self.titulo_agregar.place(relx=0.05,rely=0.05,relwidth=0.9, relheight=0.2)
         
+        self.info_letra = Label(self.contenedor_agregar,text="Info", bg="#CCCCCC",font=fuente)
+        self.info_letra.place(relx=0.1,rely=0.3,relwidth=0.8, relheight=0.1)
+        
+        self.txtNum2=Entry(self.contenedor_agregar,bg="#CCCCCC")
+        self.txtNum2.place(relx=0.10,rely=0.45,relwidth=0.8, relheight=0.05) 
+        
+        self.info_piso = Label(self.contenedor_agregar,text="Info", bg="#CCCCCC",font=fuente)
+        self.info_piso.place(relx=0.1,rely=0.6,relwidth=0.8, relheight=0.1)
+
+        self.txtNum2=Entry(self.contenedor_agregar,bg="#CCCCCC")
+        self.txtNum2.place(relx=0.1,rely=0.75,relwidth=0.8, relheight=0.05)
+
+        self.btnBloques=Button(self.contenedor_agregar,text=" Guardar",  bg="#53BF9D", foreground="#FFFFFF", font=fuente, relief="flat", anchor="w")
+        self.btnBloques.place(relx=0.8,rely=0.9,relwidth=0.1, relheight=0.05)
 
 
+
+    #def guardar(self):
+    #    return None
 
 
     
+
+
+
         
-
-       
-
-
-
 
 
 
