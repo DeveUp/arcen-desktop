@@ -157,7 +157,8 @@ class ContenedoresBase (Frame):
 
 
     def validacionCliente(self):
-
+        self.contenedor3.destroy()
+        
         fuente ="Verdana"
 
         self.contenedorCliente = Label(self.fondoBarraDeContenido,text="", bg="red")

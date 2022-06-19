@@ -1,4 +1,3 @@
-import tkinter.font as tkFont
 #No se asegura que esta sea una buena practica en la parametrizacion, Buscar buenas practicas e implementarlas 
 
 class fuentes:

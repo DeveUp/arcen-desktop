@@ -5,10 +5,12 @@ class prueba (Frame):
     
 
     def argregarBloque(self,fondoBarraDeContenido):
+        
+
         print("llego")
         fuente ="Verdana"
-        self.contenedor_agregar = Label(fondoBarraDeContenido,text="Principios de agregar", bg="red")
-        self.contenedor_agregar.place(relx=0.1,rely=0.1,relwidth=0.8, relheight=0.8)
+        self.contenedor_agregar = Label(fondoBarraDeContenido,text="Principios de agregar", bg="#e0e0e0")
+        self.contenedor_agregar.place(relx=0.1,rely=0.1,relwidth=0.7, relheight=0.7)
 
         self.titulo_agregar = Label(self.contenedor_agregar,text="AGREGAR BLOQUE", bg="#CCCCCC",font=fuente)
         self.titulo_agregar.place(relx=0.05,rely=0.05,relwidth=0.9, relheight=0.2)
