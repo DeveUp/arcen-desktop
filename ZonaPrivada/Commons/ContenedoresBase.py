@@ -5,6 +5,7 @@ from unicodedata import name
 from PIL import Image, ImageTk
 import requests
 from fuentes import fuentes
+from prueba import prueba
 
 
 class ContenedoresBase (Frame):
@@ -122,8 +123,10 @@ class ContenedoresBase (Frame):
 
     def contenido(self):
         fuente ="Verdana"
-        
-        self.btnBloques=Button(self.fondoBarraDeContenido,text=" + Agregar",  bg="#53BF9D", foreground="#FFFFFF", font=fuente, relief="flat", anchor="w", command=self.argregar)
+        fondoBarraDeContenido = self.fondoBarraDeContenido
+       
+
+        self.btnBloques=Button(self.fondoBarraDeContenido,text=" + Agregar",  bg="#53BF9D", foreground="#FFFFFF", font=fuente, relief="flat", anchor="w", command= lambda: prueba.argregarBloque(self,fondoBarraDeContenido ))
         self.btnBloques.place(relx=0.8,rely=0.05,relwidth=0.1, relheight=0.05)
         
         self.contenedor3 = Label(self.fondoBarraDeContenido,text="", bg="#FFF2F2")
