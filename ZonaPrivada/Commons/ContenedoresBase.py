@@ -6,6 +6,7 @@ from PIL import Image, ImageTk
 import requests
 from fuentes import fuentes
 from prueba import prueba
+from barra_de_navegacion import barra_de_navegacion
 
 
 class ContenedoresBase (Frame):
@@ -87,32 +88,35 @@ class ContenedoresBase (Frame):
         self.barraDeContenido.place(relx=0,rely=0,relwidth=1, relheight=1)
 
         #BARRA LATERAL
+        #Base de la barra lateral 
         self.fondoBarraLateral = fondoBarraLateral = Label(raiz,bg=borderColor)
         self.fondoBarraLateral.place(relx=0.0,rely=0.1,relwidth=0.2, relheight=0.9)
         self.barraLateral =barraLateral= Label(fondoBarraLateral,text="Negocio",  bg="#FFFFFF")
         self.barraLateral.place(relx=0,rely=0,relwidth=1, relheight=1)
 
-        self.contenedor0 = Label(barraLateral,text="contenedor1", bg="#CCCCCC", font=fuente)
-        self.contenedor0.place(relx=0.1,rely=0.02,relwidth=0.8, relheight=0.05)
-        self.btnBloques=Button(self.contenedor0,text="Bloques", bg="#FFFFFF", font=fuente, relief="flat", anchor="w", command =self.contenido)
-        self.btnBloques.place(relx=0.0,rely=0.0,relwidth=1, relheight=1)
+        barra_de_navegacion.navegacion(self,barraLateral,fondoBarraDeContenido)
 
-        self.contenedor1 = Label(barraLateral,text="contenedor1", bg="#CCCCCC", font=fuente)
-        self.contenedor1.place(relx=0.1,rely=0.09,relwidth=0.8, relheight=0.05)
-        self.btnBloques=Button(self.contenedor1,text="Muebles", bg="#FFFFFF", font=fuente, relief="flat", anchor="w")
-        self.btnBloques.place(relx=0.0,rely=0.0,relwidth=1, relheight=1)
+        #self.contenedor0 = Label(barraLateral,text="contenedor1", bg="#CCCCCC", font=fuente)
+        #self.contenedor0.place(relx=0.1,rely=0.02,relwidth=0.8, relheight=0.05)
+        #self.btnBloques=Button(self.contenedor0,text="Bloques", bg="#FFFFFF", font=fuente, relief="flat", anchor="w", command =self.contenido)
+        #self.btnBloques.place(relx=0.0,rely=0.0,relwidth=1, relheight=1)
 
-
-        self.contenedor2 = Label(barraLateral,text="contenedor1", bg="#CCCCCC", font=fuente)
-        self.contenedor2.place(relx=0.1,rely=0.16,relwidth=0.8, relheight=0.05)
-        self.btnBloques=Button(self.contenedor2,text="Estantes", bg="#FFFFFF", font=fuente, relief="flat", anchor="w")
-        self.btnBloques.place(relx=0.0,rely=0.0,relwidth=1, relheight=1)
+        #self.contenedor1 = Label(barraLateral,text="contenedor1", bg="#CCCCCC", font=fuente)
+        #self.contenedor1.place(relx=0.1,rely=0.09,relwidth=0.8, relheight=0.05)
+        #self.btnBloques=Button(self.contenedor1,text="Muebles", bg="#FFFFFF", font=fuente, relief="flat", anchor="w")
+        #self.btnBloques.place(relx=0.0,rely=0.0,relwidth=1, relheight=1)
 
 
-        self.contenedor3 = Label(barraLateral,text="contenedor1", bg="#CCCCCC", font=fuente)
-        self.contenedor3.place(relx=0.1,rely=0.23,relwidth=0.8, relheight=0.05)
-        self.btnBloques=Button(self.contenedor3,text="Cajas", bg="#FFFFFF", font=fuente, relief="flat", anchor="w")
-        self.btnBloques.place(relx=0.0,rely=0.0,relwidth=1, relheight=1)
+        #self.contenedor2 = Label(barraLateral,text="contenedor1", bg="#CCCCCC", font=fuente)
+        #self.contenedor2.place(relx=0.1,rely=0.16,relwidth=0.8, relheight=0.05)
+        #self.btnBloques=Button(self.contenedor2,text="Estantes", bg="#FFFFFF", font=fuente, relief="flat", anchor="w")
+        #self.btnBloques.place(relx=0.0,rely=0.0,relwidth=1, relheight=1)
+
+
+        #self.contenedor3 = Label(barraLateral,text="contenedor1", bg="#CCCCCC", font=fuente)
+        #self.contenedor3.place(relx=0.1,rely=0.23,relwidth=0.8, relheight=0.05)
+        #self.btnBloques=Button(self.contenedor3,text="Cajas", bg="#FFFFFF", font=fuente, relief="flat", anchor="w")
+        #self.btnBloques.place(relx=0.0,rely=0.0,relwidth=1, relheight=1)
 
 
        

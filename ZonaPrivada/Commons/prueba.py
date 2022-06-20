@@ -1,7 +1,37 @@
 
 from tkinter import PhotoImage, Tk,Frame,Label,Button, font,Entry
+import requests
 
 class prueba (Frame):
+
+    def contenido(self,fondoBarraDeContenido):
+        fuente ="Verdana"
+        fondoBarraDeContenido = self.fondoBarraDeContenido
+       
+
+        self.btnBloques=Button(self.fondoBarraDeContenido,text=" + Agregar",  bg="#53BF9D", foreground="#FFFFFF", font=fuente, relief="flat", anchor="w", command= lambda: prueba.argregarBloque(self,fondoBarraDeContenido ))
+        self.btnBloques.place(relx=0.8,rely=0.05,relwidth=0.1, relheight=0.05)
+        
+        self.contenedor3 = Label(self.fondoBarraDeContenido,text="", bg="#FFF2F2")
+        self.contenedor3.place(relx=0.1,rely=0.1,relwidth=0.8, relheight=0.8)
+        
+
+        API = 'https://jsonplaceholder.typicode.com/users'  
+        json_datos = requests.get(API).json()
+        nombre=""
+        numero =1
+        while numero<=10:
+        
+            API = 'https://jsonplaceholder.typicode.com/users/'+str(numero)  
+            json_datos = requests.get(API).json()
+            nombre =str(json_datos["username"]) 
+            self.lb = Label(self.contenedor3, text=nombre,font=fuente, anchor="w",bg="#BC0017")
+            self.lb.place(relwidth=0.7, relheight=0.2)
+            self.lb.pack(anchor="w")#Posicionar lo que se creo dentro de la ventana
+
+            self.btnBloques=Button(self.contenedor3,text=" - Eliminar",  bg="#BC0017", foreground="#FFFFFF", font=fuente, relief="flat", anchor="w",  command=self.validacionCliente)
+            self.btnBloques.pack(anchor="ne")
+            numero += 1
     
 
     def argregarBloque(self,fondoBarraDeContenido):
