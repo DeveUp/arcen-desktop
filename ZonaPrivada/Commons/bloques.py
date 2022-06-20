@@ -9,8 +9,8 @@ class bloques (Frame):
         fondoBarraDeContenido = self.fondoBarraDeContenido
        
 
-        self.btnBloques=Button(self.fondoBarraDeContenido,text=" + Agregar",  bg="#53BF9D", foreground="#FFFFFF", font=fuente, relief="flat", anchor="w", command= lambda: bloques.argregarBloque(self,fondoBarraDeContenido ))
-        self.btnBloques.place(relx=0.8,rely=0.05,relwidth=0.1, relheight=0.05)
+        self.btn_agregar=Button(self.fondoBarraDeContenido,text=" + Agregar",  bg="#53BF9D", foreground="#FFFFFF", font=fuente, relief="flat", anchor="w", command= lambda: bloques.argregarBloque(self,fondoBarraDeContenido ))
+        self.btn_agregar.place(relx=0.8,rely=0.05,relwidth=0.1, relheight=0.05)
         
         self.contenedor3 = Label(self.fondoBarraDeContenido,text="", bg="#FFF2F2")
         self.contenedor3.place(relx=0.1,rely=0.1,relwidth=0.8, relheight=0.8)
@@ -38,11 +38,12 @@ class bloques (Frame):
 
     def argregarBloque(self,fondoBarraDeContenido):
         
-
+        self.contenedor3.destroy()
+        self.btn_agregar.destroy()
         print("llego")
         fuente ="Verdana"
         self.contenedor_agregar = Label(fondoBarraDeContenido,text="Principios de agregar", bg="#e0e0e0")
-        self.contenedor_agregar.place(relx=0.1,rely=0.1,relwidth=0.7, relheight=0.7)
+        self.contenedor_agregar.place(relx=0.1,rely=0.1,relwidth=0.8, relheight=0.8)
 
         self.titulo_agregar = Label(self.contenedor_agregar,text="AGREGAR BLOQUE", bg="#CCCCCC",font=fuente)
         self.titulo_agregar.place(relx=0.05,rely=0.05,relwidth=0.9, relheight=0.2)
