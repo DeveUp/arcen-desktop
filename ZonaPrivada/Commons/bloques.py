@@ -20,19 +20,29 @@ class bloques (Frame):
         json_datos = requests.get(API).json()
         nombre=""
         numero =1
+
+        posicion_y=0.0
         while numero<=10:
         #command= lambda: prueba.argregarBloque(self,fondoBarraDeContenido )
         #command=self.validacionCliente
+            self.contenedor_lista = Label(self.contenedor3, text="prueba")
+            self.contenedor_lista.place(relx=0.0, rely=posicion_y, relwidth=1, relheight=0.1)
+            
             API = 'https://jsonplaceholder.typicode.com/users/'+str(numero)  
+           
             json_datos = requests.get(API).json()
             nombre =str(json_datos["username"]) 
-            self.lb = Label(self.contenedor3, text=nombre,font=fuente, anchor="w",bg="#BC0017")
-            self.lb.place(relwidth=0.7, relheight=0.2)
-            self.lb.pack(anchor="w")#Posicionar lo que se creo dentro de la ventana
+            self.lb = Label(self.contenedor_lista, text=nombre,font=fuente, anchor="w",bg="#FFFFFF")
+            self.lb.place(relx=0.0, rely=0.0,relwidth=0.85, relheight=1)
+            #self.lb.pack(padx=10, pady=10)
+            #self.lb.pack(anchor="w")#Posicionar lo que se creo dentro de la ventana
 
-            self.btnBloques=Button(self.contenedor3,text=" - Eliminar",  bg="#BC0017", foreground="#FFFFFF", font=fuente, relief="flat", anchor="w",  command=lambda: bloques.validacionCliente(self))
-            self.btnBloques.pack(anchor="ne")
+            self.btnBloques=Button(self.contenedor_lista,text=" - Eliminar",  bg="#BC0017", foreground="#FFFFFF", font=fuente, relief="flat", anchor="w",  command=lambda: bloques.validacionCliente(self))
+            self.btnBloques.place(relx=0.86, rely=0.15,relwidth=0.15, relheight=0.88)
+
+            #self.btnBloques.pack(anchor="ne")
             numero += 1
+            posicion_y+=0.1
             print(numero)
     
 
@@ -67,7 +77,9 @@ class bloques (Frame):
  
     def validacionCliente(self):
             self.contenedor3.destroy()
-            
+            self.btn_agregar.destroy()
+
+
             fuente ="Verdana"
 
             self.contenedorCliente = Label(self.fondoBarraDeContenido,text="", bg="red")

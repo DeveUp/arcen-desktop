@@ -72,11 +72,11 @@ class ContenedoresBase (Frame):
 
        
 
-        self.usuario = nombreDependencia = Label(barraSalida,text="Leyner Ortega", bg="#FFF2F2", font=fuente)
+        self.usuario = nombreDependencia = Label(barraSalida,text="Leyner Ortega", bg="#FFFFFF", font=fuente)
         self.usuario.place(relx=0.1,rely=0.1,relwidth=0.6, relheight=0.80)
 
 
-         #BARRA DE CONTENIDO
+        #BARRA DE CONTENIDO
         self.fondoBarraDeContenido = fondoBarraDeContenido = Label(raiz,bg=borderColor)
         self.fondoBarraDeContenido.place(relx=0.2,rely=0.1,relwidth=0.8, relheight=0.9)
         self.barraDeContenido = Label(fondoBarraDeContenido,text="Inicio",  bg="#FFFFFF")
