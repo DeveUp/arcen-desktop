@@ -1,6 +1,8 @@
 
+from shutil import which
 from tkinter import PhotoImage, Tk,Frame,Label,Button, font,Entry
 import requests
+import json
 
 class bloques (Frame):
 
@@ -19,31 +21,50 @@ class bloques (Frame):
         API = 'https://jsonplaceholder.typicode.com/users'  
         json_datos = requests.get(API).json()
         nombre=""
-        numero =1
-
+        
+        numero =3
         posicion_y=0.0
-        while numero<=10:
-        #command= lambda: prueba.argregarBloque(self,fondoBarraDeContenido )
-        #command=self.validacionCliente
+
+        for datos in json_datos:
+            print(datos)
             self.contenedor_lista = Label(self.contenedor3, text="prueba")
             self.contenedor_lista.place(relx=0.0, rely=posicion_y, relwidth=1, relheight=0.1)
-            
-            API = 'https://jsonplaceholder.typicode.com/users/'+str(numero)  
-           
-            json_datos = requests.get(API).json()
-            nombre =str(json_datos["username"]) 
+            nombre = datos.get("email")
             self.lb = Label(self.contenedor_lista, text=nombre,font=fuente, anchor="w",bg="#FFFFFF")
             self.lb.place(relx=0.0, rely=0.0,relwidth=0.85, relheight=1)
-            #self.lb.pack(padx=10, pady=10)
-            #self.lb.pack(anchor="w")#Posicionar lo que se creo dentro de la ventana
+
 
             self.btnBloques=Button(self.contenedor_lista,text=" - Eliminar",  bg="#BC0017", foreground="#FFFFFF", font=fuente, relief="flat", anchor="w",  command=lambda: bloques.validacionCliente(self))
             self.btnBloques.place(relx=0.86, rely=0.15,relwidth=0.15, relheight=0.88)
-
-            #self.btnBloques.pack(anchor="ne")
             numero += 1
             posicion_y+=0.1
-            print(numero)
+
+
+        #posicion_y=0.0
+        # while numero<=10:
+        # #command= lambda: prueba.argregarBloque(self,fondoBarraDeContenido )
+        # #command=self.validacionCliente
+        #     self.contenedor_lista = Label(self.contenedor3, text="prueba")
+        #     self.contenedor_lista.place(relx=0.0, rely=posicion_y, relwidth=1, relheight=0.1)
+            
+        #     API = 'https://jsonplaceholder.typicode.com/users/'+str(numero)  
+           
+        #     json_datos = requests.get(API).json()
+        #     nombre =str(json_datos["username"]) 
+        #     self.lb = Label(self.contenedor_lista, text=nombre,font=fuente, anchor="w",bg="#FFFFFF")
+        #     self.lb.place(relx=0.0, rely=0.0,relwidth=0.85, relheight=1)
+        #     #self.lb.pack(padx=10, pady=10)
+        #     #self.lb.pack(anchor="w")#Posicionar lo que se creo dentro de la ventana
+
+        #     self.btnBloques=Button(self.contenedor_lista,text=" - Eliminar",  bg="#BC0017", foreground="#FFFFFF", font=fuente, relief="flat", anchor="w",  command=lambda: bloques.validacionCliente(self))
+        #     self.btnBloques.place(relx=0.86, rely=0.15,relwidth=0.15, relheight=0.88)
+
+        #     #self.btnBloques.pack(anchor="ne")
+        #     numero += 1
+        #     posicion_y+=0.1
+        #     print(numero)
+
+        
     
 
     def argregarBloque(self,fondoBarraDeContenido):
@@ -82,15 +103,18 @@ class bloques (Frame):
 
             fuente ="Verdana"
 
-            self.contenedorCliente = Label(self.fondoBarraDeContenido,text="", bg="red")
-            self.contenedorCliente.place(relx=0.3,rely=0.3,relwidth=0.4, relheight=0.4)
+            self.contenedorCliente = Label(self.fondoBarraDeContenido, bg="#EEEEEE")
+            self.contenedorCliente.place(relx=0.2,rely=0.3,relwidth=0.6, relheight=0.4)
 
-            self.msgConnfirmacion = barraSalida= Label(self.contenedorCliente,text="¿Desea eliminar el registro?", bg="#CCCCCC", font=fuente)
+            self.msgConnfirmacion = barraSalida= Label(self.contenedorCliente,text="¿Esta seguro que desea eliminar el registro?", font=fuente)
             self.msgConnfirmacion.place(relx=0.2,rely=0.2,relwidth=0.6, relheight=0.2)
 
             self.btnSi=Button(self.contenedorCliente,text=" SI ",  bg="#53BF9D", foreground="#FFFFFF", font=fuente, relief="flat")
             self.btnSi.place(relx=0.2,rely=0.6,relwidth=0.2, relheight=0.2)
 
-            self.btnNo=Button(self.contenedorCliente,text=" NO ",  bg="#BC0017", foreground="#FFFFFF", font=fuente, relief="flat")
+            self.btnNo=Button(self.contenedorCliente,text=" NO ",  bg="#BC0017", foreground="#FFFFFF", font=fuente, relief="flat",command=lambda: bloques.contenido(self,self.fondoBarraDeContenido) )
             self.btnNo.place(relx=0.6,rely=0.6,relwidth=0.2, relheight=0.2)
 
+    def agregar(self):
+        bloques.contenido(self, self.fondoBarraDeContenido)
+        #Metodo para consumir servicio de agregar bloques
