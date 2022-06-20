@@ -1,4 +1,4 @@
-from self.ZonaPrivada.Commons.ContenedoresBase import ContenedoresBase
+from Commons.ContenedoresBase import ContenedoresBase
 from tkinter import *
 
 #from Commons.ContenedoresBase import *

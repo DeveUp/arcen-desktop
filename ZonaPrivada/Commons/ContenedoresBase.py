@@ -4,8 +4,8 @@ from tkinter import PhotoImage, Tk,Frame,Label,Button, font,Entry
 from unicodedata import name
 from PIL import Image, ImageTk
 import requests
-from fuentes import fuentes
-from prueba import prueba
+#from fuentes import fuentes
+#from prueba import prueba
 from barra_de_navegacion import barra_de_navegacion
 
 
@@ -36,11 +36,6 @@ class ContenedoresBase (Frame):
         self.fondoImgPrincipal.place(relx=0,rely=0,relwidth=0.2, relheight=0.1)
         self.imgPrincipal = Label(fondoImgPrincipal,text="Imagen ufps", bg="#FFFFFF")
         self.imgPrincipal.place(relx=0,rely=0,relwidth=1, relheight=1)
-
-        #self.imagenPrincipal = PhotoImage(file="Frontend Desarrollo\ZonaPublica\Img\Imagen\logoUFPS.png")
-        #self.lblImg = Label(fondoImgPrincipal, image=self.imagenPrincipal)
-        #self.place(relx=0,rely=0,relwidth=1, relheight=1)
-        #self.lblImg.pack
 
         widthImg = self.imgPrincipal.winfo_screenwidth()*(0.2)
         heightImg = self.imgPrincipal.winfo_screenheight()*(0.1)
@@ -118,93 +113,82 @@ class ContenedoresBase (Frame):
         #self.btnBloques=Button(self.contenedor3,text="Cajas", bg="#FFFFFF", font=fuente, relief="flat", anchor="w")
         #self.btnBloques.place(relx=0.0,rely=0.0,relwidth=1, relheight=1)
 
-
-       
-
         #self.contenido()
         
 
 
-    def contenido(self):
-        fuente ="Verdana"
-        fondoBarraDeContenido = self.fondoBarraDeContenido
+    # def contenido(self):
+    #     fuente ="Verdana"
+    #     fondoBarraDeContenido = self.fondoBarraDeContenido
        
 
-        self.btnBloques=Button(self.fondoBarraDeContenido,text=" + Agregar",  bg="#53BF9D", foreground="#FFFFFF", font=fuente, relief="flat", anchor="w", command= lambda: prueba.argregarBloque(self,fondoBarraDeContenido ))
-        self.btnBloques.place(relx=0.8,rely=0.05,relwidth=0.1, relheight=0.05)
+    #     self.btnBloques=Button(self.fondoBarraDeContenido,text=" + Agregar",  bg="#53BF9D", foreground="#FFFFFF", font=fuente, relief="flat", anchor="w", command= lambda: prueba.argregarBloque(self,fondoBarraDeContenido ))
+    #     self.btnBloques.place(relx=0.8,rely=0.05,relwidth=0.1, relheight=0.05)
         
-        self.contenedor3 = Label(self.fondoBarraDeContenido,text="", bg="#FFF2F2")
-        self.contenedor3.place(relx=0.1,rely=0.1,relwidth=0.8, relheight=0.8)
-        
-
-        API = 'https://jsonplaceholder.typicode.com/users'  
-        json_datos = requests.get(API).json()
-        nombre=""
-        numero =1
-        while numero<=10:
-        
-            API = 'https://jsonplaceholder.typicode.com/users/'+str(numero)  
-            json_datos = requests.get(API).json()
-            nombre =str(json_datos["username"]) 
-            self.lb = Label(self.contenedor3, text=nombre,font=fuente, anchor="w",bg="#BC0017")
-            self.lb.place(relwidth=0.7, relheight=0.2)
-            self.lb.pack(anchor="w")#Posicionar lo que se creo dentro de la ventana
-
-            self.btnBloques=Button(self.contenedor3,text=" - Eliminar",  bg="#BC0017", foreground="#FFFFFF", font=fuente, relief="flat", anchor="w",  command=self.validacionCliente)
-            self.btnBloques.pack(anchor="ne")
-            numero += 1
+    #     self.contenedor3 = Label(self.fondoBarraDeContenido,text="", bg="#FFF2F2")
+    #     self.contenedor3.place(relx=0.1,rely=0.1,relwidth=0.8, relheight=0.8)
         
 
-        #for key in json_datos:
-        #    print(key, ":", json_datos[key])
+        # API = 'https://jsonplaceholder.typicode.com/users'  
+        # json_datos = requests.get(API).json()
+        # nombre=""
+        # numero =1
+        # while numero<=10:
+        
+        #     API = 'https://jsonplaceholder.typicode.com/users/'+str(numero)  
+        #     json_datos = requests.get(API).json()
+        #     nombre =str(json_datos["username"]) 
+        #     self.lb = Label(self.contenedor3, text=nombre,font=fuente, anchor="w",bg="#BC0017")
+        #     self.lb.place(relwidth=0.7, relheight=0.2)
+        #     self.lb.pack(anchor="w")#Posicionar lo que se creo dentro de la ventana
+
+        #     self.btnBloques=Button(self.contenedor3,text=" - Eliminar",  bg="#BC0017", foreground="#FFFFFF", font=fuente, relief="flat", anchor="w",  command=self.validacionCliente)
+        #     self.btnBloques.pack(anchor="ne")
+        #     numero += 1
     
 
 
-    def validacionCliente(self):
-        self.contenedor3.destroy()
+    # def validacionCliente(self):
+    #     self.contenedor3.destroy()
         
-        fuente ="Verdana"
+    #     fuente ="Verdana"
 
-        self.contenedorCliente = Label(self.fondoBarraDeContenido,text="", bg="red")
-        self.contenedorCliente.place(relx=0.3,rely=0.3,relwidth=0.4, relheight=0.4)
+    #     self.contenedorCliente = Label(self.fondoBarraDeContenido,text="", bg="red")
+    #     self.contenedorCliente.place(relx=0.3,rely=0.3,relwidth=0.4, relheight=0.4)
 
-        self.msgConnfirmacion = barraSalida= Label(self.contenedorCliente,text="¿Desea eliminar el registro?", bg="#CCCCCC", font=fuente)
-        self.msgConnfirmacion.place(relx=0.2,rely=0.2,relwidth=0.6, relheight=0.2)
+    #     self.msgConnfirmacion = barraSalida= Label(self.contenedorCliente,text="¿Desea eliminar el registro?", bg="#CCCCCC", font=fuente)
+    #     self.msgConnfirmacion.place(relx=0.2,rely=0.2,relwidth=0.6, relheight=0.2)
 
-        self.btnSi=Button(self.contenedorCliente,text=" SI ",  bg="#53BF9D", foreground="#FFFFFF", font=fuente, relief="flat")
-        self.btnSi.place(relx=0.2,rely=0.6,relwidth=0.2, relheight=0.2)
+    #     self.btnSi=Button(self.contenedorCliente,text=" SI ",  bg="#53BF9D", foreground="#FFFFFF", font=fuente, relief="flat")
+    #     self.btnSi.place(relx=0.2,rely=0.6,relwidth=0.2, relheight=0.2)
 
-        self.btnNo=Button(self.contenedorCliente,text=" NO ",  bg="#BC0017", foreground="#FFFFFF", font=fuente, relief="flat")
-        self.btnNo.place(relx=0.6,rely=0.6,relwidth=0.2, relheight=0.2)
+    #     self.btnNo=Button(self.contenedorCliente,text=" NO ",  bg="#BC0017", foreground="#FFFFFF", font=fuente, relief="flat")
+    #     self.btnNo.place(relx=0.6,rely=0.6,relwidth=0.2, relheight=0.2)
 
-    def argregar(self):
+    # def argregar(self):
 
-        fuente ="Verdana"
-        self.contenedor_agregar = Label(self.fondoBarraDeContenido,text="Principios de agregar", bg="red")
-        self.contenedor_agregar.place(relx=0.1,rely=0.1,relwidth=0.8, relheight=0.8)
+    #     fuente ="Verdana"
+    #     self.contenedor_agregar = Label(self.fondoBarraDeContenido,text="Principios de agregar", bg="red")
+    #     self.contenedor_agregar.place(relx=0.1,rely=0.1,relwidth=0.8, relheight=0.8)
 
-        self.titulo_agregar = Label(self.contenedor_agregar,text="AGREGAR BLOQUE", bg="#CCCCCC",font=fuente)
-        self.titulo_agregar.place(relx=0.05,rely=0.05,relwidth=0.9, relheight=0.2)
+    #     self.titulo_agregar = Label(self.contenedor_agregar,text="AGREGAR BLOQUE", bg="#CCCCCC",font=fuente)
+    #     self.titulo_agregar.place(relx=0.05,rely=0.05,relwidth=0.9, relheight=0.2)
         
-        self.info_letra = Label(self.contenedor_agregar,text="Info", bg="#CCCCCC",font=fuente)
-        self.info_letra.place(relx=0.1,rely=0.3,relwidth=0.8, relheight=0.1)
+    #     self.info_letra = Label(self.contenedor_agregar,text="Info", bg="#CCCCCC",font=fuente)
+    #     self.info_letra.place(relx=0.1,rely=0.3,relwidth=0.8, relheight=0.1)
         
-        self.txtNum2=Entry(self.contenedor_agregar,bg="#CCCCCC")
-        self.txtNum2.place(relx=0.10,rely=0.45,relwidth=0.8, relheight=0.05) 
+    #     self.txtNum2=Entry(self.contenedor_agregar,bg="#CCCCCC")
+    #     self.txtNum2.place(relx=0.10,rely=0.45,relwidth=0.8, relheight=0.05) 
         
-        self.info_piso = Label(self.contenedor_agregar,text="Info", bg="#CCCCCC",font=fuente)
-        self.info_piso.place(relx=0.1,rely=0.6,relwidth=0.8, relheight=0.1)
+    #     self.info_piso = Label(self.contenedor_agregar,text="Info", bg="#CCCCCC",font=fuente)
+    #     self.info_piso.place(relx=0.1,rely=0.6,relwidth=0.8, relheight=0.1)
 
-        self.txtNum2=Entry(self.contenedor_agregar,bg="#CCCCCC")
-        self.txtNum2.place(relx=0.1,rely=0.75,relwidth=0.8, relheight=0.05)
+    #     self.txtNum2=Entry(self.contenedor_agregar,bg="#CCCCCC")
+    #     self.txtNum2.place(relx=0.1,rely=0.75,relwidth=0.8, relheight=0.05)
 
-        self.btnBloques=Button(self.contenedor_agregar,text=" Guardar",  bg="#53BF9D", foreground="#FFFFFF", font=fuente, relief="flat", anchor="w")
-        self.btnBloques.place(relx=0.8,rely=0.9,relwidth=0.1, relheight=0.05)
+    #     self.btnBloques=Button(self.contenedor_agregar,text=" Guardar",  bg="#53BF9D", foreground="#FFFFFF", font=fuente, relief="flat", anchor="w")
+    #     self.btnBloques.place(relx=0.8,rely=0.9,relwidth=0.1, relheight=0.05)
 
-
-
-    #def guardar(self):
-    #    return None
 
 
     

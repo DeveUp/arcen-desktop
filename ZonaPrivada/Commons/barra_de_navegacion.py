@@ -1,5 +1,7 @@
+from cProfile import label
 from tkinter import PhotoImage, Tk,Frame,Label,Button, font,Entry
-from prueba import prueba
+from bloques import bloques
+#from bloques import bloques
 
 class barra_de_navegacion (Frame):
     
@@ -10,26 +12,57 @@ class barra_de_navegacion (Frame):
         print("llego a la barra lateral")
         fuente ="Verdana"
 
-        #command= lambda: prueba.argregarBloque(self,fondoBarraDeContenido )
-
+     
+        # BLOQUES
         self.contenedor0 = Label(barraLateral,text="contenedor1", bg="red", font=fuente)
-        self.contenedor0.place(relx=0.1,rely=0.02,relwidth=0.8, relheight=0.05)
-        self.btnBloques=Button(self.contenedor0,text="Bloques", bg="#FFFFFF", font=fuente, relief="flat", anchor="w", command =lambda: prueba.contenido(self,fondoBarraDeContenido))
-        self.btnBloques.place(relx=0.0,rely=0.0,relwidth=1, relheight=1)
+        self.contenedor0.place(relx=0.1,rely=0.02,relwidth=0.8, relheight=0.15)
+        
+        self.btnBloques=Label(self.contenedor0,text="BLOQUES", bg="#FFFFFF", font=fuente, relief="flat", anchor="w")
+        self.btnBloques.place(relx=0.0,rely=0.0,relwidth=1, relheight=0.33)
 
+        self.btnBloques=Button(self.contenedor0,text="   › Bloques", bg="#FFFFFF", font=fuente, relief="flat", anchor="w", command =lambda: bloques.contenido(self,fondoBarraDeContenido))
+        self.btnBloques.place(relx=0.0,rely=0.333,relwidth=1, relheight=0.33)
+        
+        self.btnBloques=Button(self.contenedor0,text="   › Tipos de bloques", bg="#FFFFFF", font=fuente, relief="flat", anchor="w")
+        self.btnBloques.place(relx=0.0,rely=0.666,relwidth=1, relheight=0.33)
+
+        #MUEBLES
         self.contenedor1 = Label(barraLateral,text="contenedor1", bg="#CCCCCC", font=fuente)
-        self.contenedor1.place(relx=0.1,rely=0.09,relwidth=0.8, relheight=0.05)
-        self.btnBloques=Button(self.contenedor1,text="Muebles", bg="#FFFFFF", font=fuente, relief="flat", anchor="w")
-        self.btnBloques.place(relx=0.0,rely=0.0,relwidth=1, relheight=1)
+        self.contenedor1.place(relx=0.1,rely=0.2,relwidth=0.8, relheight=0.15)
+        
+        self.btnBloques=Label(self.contenedor1,text="MUEBLES", bg="#FFFFFF", font=fuente, relief="flat", anchor="w")
+        self.btnBloques.place(relx=0.0,rely=0.0,relwidth=1, relheight=0.33)
+
+        self.btnBloques=Button(self.contenedor1,text="   › Muebles", bg="#FFFFFF", font=fuente, relief="flat", anchor="w")
+        self.btnBloques.place(relx=0.0,rely=0.33,relwidth=1, relheight=0.33)
+
+        self.btnBloques=Button(self.contenedor1,text="   › Tipos de muebles", bg="#FFFFFF", font=fuente, relief="flat", anchor="w")
+        self.btnBloques.place(relx=0.0,rely=0.66,relwidth=1, relheight=0.33)
 
 
+
+        #ESTANTES
         self.contenedor2 = Label(barraLateral,text="contenedor1", bg="#CCCCCC", font=fuente)
-        self.contenedor2.place(relx=0.1,rely=0.16,relwidth=0.8, relheight=0.05)
-        self.btnBloques=Button(self.contenedor2,text="Estantes", bg="#FFFFFF", font=fuente, relief="flat", anchor="w")
-        self.btnBloques.place(relx=0.0,rely=0.0,relwidth=1, relheight=1)
+        self.contenedor2.place(relx=0.1,rely=0.38,relwidth=0.8, relheight=0.15)
+        
+        self.btnBloques=Label(self.contenedor2,text="ESTANTES", bg="#FFFFFF", font=fuente, relief="flat", anchor="w")
+        self.btnBloques.place(relx=0.0,rely=0.0,relwidth=1, relheight=0.33)
 
+        self.btnBloques=Button(self.contenedor2,text="   › Estantes", bg="#FFFFFF", font=fuente, relief="flat", anchor="w")
+        self.btnBloques.place(relx=0.0,rely=0.33,relwidth=1, relheight=0.33)
 
-        self.contenedor3 = Label(barraLateral,text="contenedor1", bg="#CCCCCC", font=fuente)
-        self.contenedor3.place(relx=0.1,rely=0.23,relwidth=0.8, relheight=0.05)
-        self.btnBloques=Button(self.contenedor3,text="Cajas", bg="#FFFFFF", font=fuente, relief="flat", anchor="w")
-        self.btnBloques.place(relx=0.0,rely=0.0,relwidth=1, relheight=1)
+        self.btnBloques=Button(self.contenedor2,text="   › Tipos de estantes", bg="#FFFFFF", font=fuente, relief="flat", anchor="w")
+        self.btnBloques.place(relx=0.0,rely=0.66,relwidth=1, relheight=0.33)
+
+        #CAJAS
+        self.contenedor3 = Label(barraLateral,text="contenedor1", bg="#FFF2F2", font=fuente)
+        self.contenedor3.place(relx=0.1,rely=0.56,relwidth=0.8, relheight=0.15)
+        
+        self.btnBloques=Label(self.contenedor3,text="CAJAS", bg="#FFFFFF", font=fuente, relief="flat", anchor="w")
+        self.btnBloques.place(relx=0.0,rely=0.0,relwidth=1, relheight=0.3)
+
+        self.btnBloques=Button(self.contenedor3,text="   › Cajas", bg="#FFFFFF", font=fuente, relief="flat", anchor="w")
+        self.btnBloques.place(relx=0.0,rely=0.333,relwidth=1, relheight=0.3)
+
+        self.btnBloques=Button(self.contenedor3,text="   › Tipos de cajas", bg="#FFFFFF", font=fuente, relief="flat", anchor="w")
+        self.btnBloques.place(relx=0.0,rely=0.666,relwidth=1, relheight=0.3)

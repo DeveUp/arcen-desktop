@@ -2,14 +2,14 @@
 from tkinter import PhotoImage, Tk,Frame,Label,Button, font,Entry
 import requests
 
-class prueba (Frame):
+class bloques (Frame):
 
     def contenido(self,fondoBarraDeContenido):
         fuente ="Verdana"
         fondoBarraDeContenido = self.fondoBarraDeContenido
        
 
-        self.btnBloques=Button(self.fondoBarraDeContenido,text=" + Agregar",  bg="#53BF9D", foreground="#FFFFFF", font=fuente, relief="flat", anchor="w", command= lambda: prueba.argregarBloque(self,fondoBarraDeContenido ))
+        self.btnBloques=Button(self.fondoBarraDeContenido,text=" + Agregar",  bg="#53BF9D", foreground="#FFFFFF", font=fuente, relief="flat", anchor="w", command= lambda: bloques.argregarBloque(self,fondoBarraDeContenido ))
         self.btnBloques.place(relx=0.8,rely=0.05,relwidth=0.1, relheight=0.05)
         
         self.contenedor3 = Label(self.fondoBarraDeContenido,text="", bg="#FFF2F2")
@@ -21,7 +21,8 @@ class prueba (Frame):
         nombre=""
         numero =1
         while numero<=10:
-        
+        #command= lambda: prueba.argregarBloque(self,fondoBarraDeContenido )
+        #command=self.validacionCliente
             API = 'https://jsonplaceholder.typicode.com/users/'+str(numero)  
             json_datos = requests.get(API).json()
             nombre =str(json_datos["username"]) 
@@ -29,9 +30,10 @@ class prueba (Frame):
             self.lb.place(relwidth=0.7, relheight=0.2)
             self.lb.pack(anchor="w")#Posicionar lo que se creo dentro de la ventana
 
-            self.btnBloques=Button(self.contenedor3,text=" - Eliminar",  bg="#BC0017", foreground="#FFFFFF", font=fuente, relief="flat", anchor="w",  command=self.validacionCliente)
+            self.btnBloques=Button(self.contenedor3,text=" - Eliminar",  bg="#BC0017", foreground="#FFFFFF", font=fuente, relief="flat", anchor="w",  command=lambda: bloques.validacionCliente(self))
             self.btnBloques.pack(anchor="ne")
             numero += 1
+            print(numero)
     
 
     def argregarBloque(self,fondoBarraDeContenido):
@@ -59,3 +61,23 @@ class prueba (Frame):
 
         self.btnBloques=Button(self.contenedor_agregar,text=" Guardar",  bg="#53BF9D", foreground="#FFFFFF", font=fuente, relief="flat", anchor="w")
         self.btnBloques.place(relx=0.8,rely=0.9,relwidth=0.1, relheight=0.05)
+
+
+ 
+    def validacionCliente(self):
+            self.contenedor3.destroy()
+            
+            fuente ="Verdana"
+
+            self.contenedorCliente = Label(self.fondoBarraDeContenido,text="", bg="red")
+            self.contenedorCliente.place(relx=0.3,rely=0.3,relwidth=0.4, relheight=0.4)
+
+            self.msgConnfirmacion = barraSalida= Label(self.contenedorCliente,text="¿Desea eliminar el registro?", bg="#CCCCCC", font=fuente)
+            self.msgConnfirmacion.place(relx=0.2,rely=0.2,relwidth=0.6, relheight=0.2)
+
+            self.btnSi=Button(self.contenedorCliente,text=" SI ",  bg="#53BF9D", foreground="#FFFFFF", font=fuente, relief="flat")
+            self.btnSi.place(relx=0.2,rely=0.6,relwidth=0.2, relheight=0.2)
+
+            self.btnNo=Button(self.contenedorCliente,text=" NO ",  bg="#BC0017", foreground="#FFFFFF", font=fuente, relief="flat")
+            self.btnNo.place(relx=0.6,rely=0.6,relwidth=0.2, relheight=0.2)
+
