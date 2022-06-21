@@ -1,7 +1,12 @@
+import email
+import imp
 from tkinter import Tk,Frame,Label,Button,Entry
+from xml.dom.expatbuilder import DOCUMENT_NODE
 from PIL import Image, ImageTk
 from Clase2 import *
-
+from prueba import prueba
+import requests
+import json
 class Login (Frame):
 
     funcionalidad = Clase2()
@@ -58,30 +63,53 @@ class Login (Frame):
 
         self.lblNum1 = Label(raiz,text="Email", font=fuente)
         self.lblNum1.place(relx=0.70,rely=0.45,relwidth=0.2, relheight=0.05)
-        self.txtNum1=Entry(raiz,bg="#CCCCCC")
+        self.txtNum1=Entry(raiz,bg="#CCCCCC", font=fuente)
         self.txtNum1.place(relx=0.70,rely=0.5,relwidth=0.2, relheight=0.05)
 
         self.lblNum2 = Label(raiz,text="Documento", font=fuente)
         self.lblNum2.place(relx=0.70,rely=0.55,relwidth=0.2, relheight=0.05)
-        self.txtNum2=Entry(raiz,bg="#CCCCCC")
+        self.txtNum2=Entry(raiz,bg="#CCCCCC", font=fuente)
         self.txtNum2.place(relx=0.70,rely=0.6,relwidth=0.2, relheight=0.05)
 
 
         self.lblNum3 = Label(raiz,text="Contraseña", font=fuente)
         self.lblNum3.place(relx=0.70,rely=0.65,relwidth=0.2, relheight=0.05)
-        self.txtNum2=Entry(raiz,bg="#CCCCCC")
-        self.txtNum2.place(relx=0.70,rely=0.7,relwidth=0.2, relheight=0.05)
+        self.txtNum3=Entry(raiz,bg="#CCCCCC",show="•")
+        self.txtNum3.place(relx=0.70,rely=0.7,relwidth=0.2, relheight=0.05)
 
+        email=self.txtNum1.get()
+        documento =self.txtNum2.get()
+        contraseña = self.txtNum3.get()
+
+
+
+        #print(email+"pr")
+        
         #Crear botones
         #self.btn=Button(raiz,text="Iniciar sesion", command=self.funcionalidad.iniciarSession(fondoLogin))
-        self.btn=Button(raiz,text="Iniciar sesion", bg="#BC0017", foreground="#FFFFFF", font=fuente)
+        self.btn=Button(raiz,text="Iniciar sesion", bg="#BC0017", foreground="#FFFFFF", font=fuente,command=lambda: Login.peticionPOST(email,documento, contraseña))
         self.btn.place(relx=0.70,rely=0.8,relwidth=0.2, relheight=0.05)
         print("si llega 1")
         
+
+        #command=lambda: bloques.contenido(self,self.fondoBarraDeContenido)
         return raiz
 
         
+    def peticionPOST(email,documento, contraseña):
+        print(email)
+        print("LLEGA AL POST")
+        #print(documento)
+        #print(contraseña)
+        url = 'http://httpbin.org/post'
+        login_request ={'email':email,'documento':documento, 'contraseña':contraseña}
 
+        response = requests.post(url,data=json.dumps(login_request))
+
+        print(response.url)
+
+        if response.status_code==200:
+            print("Leyner the best")
 
 
 
@@ -91,6 +119,7 @@ class Login (Frame):
         self.lb.place(relx=0.0, rely=0.0,relwidth=0.8, relheight=0.05)
         #self.lb.pack()#Posicionar lo que se creo dentro de la ventana
     
+
 
 raiz = Tk()
 screen_width = raiz.winfo_screenwidth()

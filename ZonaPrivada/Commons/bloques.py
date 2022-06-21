@@ -18,26 +18,35 @@ class bloques (Frame):
         self.contenedor3.place(relx=0.1,rely=0.1,relwidth=0.8, relheight=0.8)
         
 
-        API = 'https://jsonplaceholder.typicode.com/users'  
+        API = 'https://jsonplaceholder.typicode.com/posts'  
         json_datos = requests.get(API).json()
         nombre=""
         
-        numero =3
+        #datos =json_datos[3]
         posicion_y=0.0
 
         for datos in json_datos:
-            print(datos)
+        
+            # name = json_datos[1]
+            # print(name)
             self.contenedor_lista = Label(self.contenedor3, text="prueba")
             self.contenedor_lista.place(relx=0.0, rely=posicion_y, relwidth=1, relheight=0.1)
-            nombre = datos.get("email")
+            nombre = datos.get("title")
             self.lb = Label(self.contenedor_lista, text=nombre,font=fuente, anchor="w",bg="#FFFFFF")
             self.lb.place(relx=0.0, rely=0.0,relwidth=0.85, relheight=1)
 
 
             self.btnBloques=Button(self.contenedor_lista,text=" - Eliminar",  bg="#BC0017", foreground="#FFFFFF", font=fuente, relief="flat", anchor="w",  command=lambda: bloques.validacionCliente(self))
-            self.btnBloques.place(relx=0.86, rely=0.15,relwidth=0.15, relheight=0.88)
-            numero += 1
+            self.btnBloques.place(relx=0.86, rely=0.15,relwidth=0.15, relheight=0.7)
+            #numero += 1
             posicion_y+=0.1
+            print(posicion_y)
+
+            if posicion_y==1.2:
+                self.btn_agregar=Button(self.fondoBarraDeContenido,text=" Siguiente pagina >",  bg="#53BF9D", foreground="#FFFFFF", font=fuente, relief="flat", anchor="w", command= lambda: bloques.contenido(self,fondoBarraDeContenido ))
+                self.btn_agregar.place(relx=0.7,rely=0.9,relwidth=0.2, relheight=0.05)
+
+        
 
 
         #posicion_y=0.0
@@ -73,10 +82,10 @@ class bloques (Frame):
         self.btn_agregar.destroy()
         print("llego")
         fuente ="Verdana"
-        self.contenedor_agregar = Label(fondoBarraDeContenido,text="Principios de agregar", bg="#e0e0e0")
+        self.contenedor_agregar = Label(fondoBarraDeContenido)
         self.contenedor_agregar.place(relx=0.1,rely=0.1,relwidth=0.8, relheight=0.8)
 
-        self.titulo_agregar = Label(self.contenedor_agregar,text="AGREGAR BLOQUE", bg="#CCCCCC",font=fuente)
+        self.titulo_agregar = Label(self.contenedor_agregar,text="AGREGAR BLOQUE", foreground="#BC0017",font=fuente)
         self.titulo_agregar.place(relx=0.05,rely=0.05,relwidth=0.9, relheight=0.2)
         
         self.info_letra = Label(self.contenedor_agregar,text="Info", bg="#CCCCCC",font=fuente)
@@ -92,7 +101,7 @@ class bloques (Frame):
         self.txtNum2.place(relx=0.1,rely=0.75,relwidth=0.8, relheight=0.05)
 
         self.btnBloques=Button(self.contenedor_agregar,text=" Guardar",  bg="#53BF9D", foreground="#FFFFFF", font=fuente, relief="flat", anchor="w")
-        self.btnBloques.place(relx=0.8,rely=0.9,relwidth=0.1, relheight=0.05)
+        self.btnBloques.place(relx=0.8,rely=0.9,relwidth=0.1, relheight=0.08)
 
 
  
