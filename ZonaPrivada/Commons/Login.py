@@ -3,13 +3,12 @@ import imp
 from tkinter import Tk,Frame,Label,Button,Entry
 from xml.dom.expatbuilder import DOCUMENT_NODE
 from PIL import Image, ImageTk
-from Clase2 import *
-from prueba import prueba
+from ContenedorPrueba import ContenedoresPrueba
 import requests
 import json
 class Login (Frame):
 
-    funcionalidad = Clase2()
+    #funcionalidad = Clase2()
     #Todo metodo dentro de una clase recibe self
     def __init__(self, master=None):
        
@@ -87,7 +86,7 @@ class Login (Frame):
         
         #Crear botones
         #self.btn=Button(raiz,text="Iniciar sesion", command=self.funcionalidad.iniciarSession(fondoLogin))
-        self.btn=Button(raiz,text="Iniciar sesion", bg="#BC0017", foreground="#FFFFFF", font=fuente,command=lambda: Login.peticionPOST(email,documento, contraseña))
+        self.btn=Button(raiz,text="Iniciar sesion", bg="#BC0017", foreground="#FFFFFF", font=fuente,command=lambda: Login.peticionPOST(self,email,documento, contraseña))
         self.btn.place(relx=0.70,rely=0.8,relwidth=0.2, relheight=0.05)
         print("si llega 1")
         
@@ -96,7 +95,7 @@ class Login (Frame):
         return raiz
 
         
-    def peticionPOST(email,documento, contraseña):
+    def peticionPOST(self,email,documento, contraseña):
         print(email)
         print("LLEGA AL POST")
         #print(documento)
@@ -105,11 +104,13 @@ class Login (Frame):
         login_request ={'email':email,'documento':documento, 'contraseña':contraseña}
 
         response = requests.post(url,data=json.dumps(login_request))
-
         print(response.url)
 
         if response.status_code==200:
             print("Leyner the best")
+            #Login.destroy()
+            ContenedoresPrueba.construirContenedores(self,raiz)
+            
 
 
 
