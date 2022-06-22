@@ -16,6 +16,7 @@ class Login (Frame):
         self.master = master
         self.pack()
         self.crearMaquetaBase()
+    
 
     
 
@@ -80,9 +81,6 @@ class Login (Frame):
         documento =self.txtNum2.get()
         contraseña = self.txtNum3.get()
 
-
-
-        #print(email+"pr")
         
         #Crear botones
         #self.btn=Button(raiz,text="Iniciar sesion", command=self.funcionalidad.iniciarSession(fondoLogin))

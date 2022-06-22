@@ -1,6 +1,10 @@
 from cProfile import label
 from tkinter import PhotoImage, Tk,Frame,Label,Button, font,Entry
 from bloques import bloques
+from digitalizar import digitalizar
+
+from tipos_bloques import tipos_bloques
+
 #from bloques import bloques
 
 class barra_de_navegacion (Frame):
@@ -23,7 +27,7 @@ class barra_de_navegacion (Frame):
         self.btnBloques=Button(self.contenedor0,text="   › Bloques", bg="#FFFFFF", font=fuente, relief="flat", anchor="w", command =lambda: bloques.contenido(self,fondoBarraDeContenido))
         self.btnBloques.place(relx=0.0,rely=0.333,relwidth=1, relheight=0.33)
         
-        self.btnBloques=Button(self.contenedor0,text="   › Tipos de bloques", bg="#FFFFFF", font=fuente, relief="flat", anchor="w")
+        self.btnBloques=Button(self.contenedor0,text="   › Tipos de bloques", bg="#FFFFFF", font=fuente, relief="flat", anchor="w", command =lambda: tipos_bloques.contenido(self,fondoBarraDeContenido))
         self.btnBloques.place(relx=0.0,rely=0.666,relwidth=1, relheight=0.33)
 
         #MUEBLES
@@ -66,3 +70,14 @@ class barra_de_navegacion (Frame):
 
         self.btnBloques=Button(self.contenedor3,text="   › Tipos de cajas", bg="#FFFFFF", font=fuente, relief="flat", anchor="w")
         self.btnBloques.place(relx=0.0,rely=0.666,relwidth=1, relheight=0.33)
+
+        # DIGITALIZAR DOCUMENTOS
+        self.contenedor3 = Label(barraLateral,text="contenedor1", bg="#EEEEEE", font=fuente)
+        self.contenedor3.place(relx=0.1,rely=0.59,relwidth=0.8, relheight=0.1)
+        
+        self.btnBloques=Label(self.contenedor3,text="DOCUMENTOS", bg="#FFFFFF", font=fuente, relief="flat", anchor="w")
+        self.btnBloques.place(relx=0.0,rely=0.0,relwidth=1, relheight=0.5)
+
+        self.btnBloques=Button(self.contenedor3,text="   › Digitalizar", bg="#FFFFFF", font=fuente, relief="flat", anchor="w",command =lambda: digitalizar.contenido(self,fondoBarraDeContenido))
+        self.btnBloques.place(relx=0.0,rely=0.5,relwidth=1, relheight=0.5)
+
