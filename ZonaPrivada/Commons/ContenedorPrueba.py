@@ -5,7 +5,7 @@ from PIL import Image, ImageTk
 import requests
 #from fuentes import fuentes
 #from prueba import prueba
-from barra_de_navegacion import barra_de_navegacion
+from ZonaPrivada.Commons.barra_de_navegacion import barra_de_navegacion
 
 
 

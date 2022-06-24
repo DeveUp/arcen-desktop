@@ -1,9 +1,9 @@
 from cProfile import label
 from tkinter import PhotoImage, Tk,Frame,Label,Button, font,Entry
-from bloques import bloques
-from digitalizar import digitalizar
+from ZonaPrivada.Commons.bloques import bloques
+from ZonaPrivada.Commons.digitalizar import digitalizar
 
-from tipos_bloques import tipos_bloques
+from ZonaPrivada.Commons.tipos_bloques import tipos_bloques
 
 #from bloques import bloques
 
